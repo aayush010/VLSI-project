@@ -1,0 +1,149 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+    <sourceFile name="">
+        <directive functionName="vgf31_unique" label="vgf31_unique_label0" functionLabel="">
+            <pragma name="DATAFLOW"/>
+        </directive>
+        <directive functionName="gf31_nrand_schar" label="gf31_nrand_schar_label1" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="gf31_npack" label="gf31_npack_label3" functionLabel="">
+            <pragma name="DATAFLOW"/>
+        </directive>
+        <directive functionName="KeyExpansion" label="KeyExpansion_label1" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="KeyExpansion" label="KeyExpansion_label0" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="AddRoundKey" label="AddRoundKey_label0" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="AddRoundKey" label="AddRoundKey_label1" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="Cipher" label="Cipher_label6" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="InvCipher" label="InvCipher_label7" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="XorWithIv" label="XorWithIv_label8" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="AES_CBC_encrypt_buffer" label="AES_CBC_encrypt_buffer_label9" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="AES_CBC_decrypt_buffer" label="AES_CBC_decrypt_buffer_label10" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="AES_CTR_xcrypt_buffer" label="AES_CTR_xcrypt_buffer_label11" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="KeccakF1600_StatePermute" label="KeccakF1600_StatePermute_label0" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="keccak_absorb" label="keccak_absorb_label1" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="keccak_absorb" label="keccak_absorb_label2" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="keccak_absorb" label="keccak_absorb_label3" functionLabel="">
+            <pragma name="DATAFLOW"/>
+        </directive>
+        <directive functionName="keccak_absorb" label="keccak_absorb_label0" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="keccak_absorb" label="keccak_absorb_label4" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="keccak_squeezeblocks" label="keccak_squeezeblocks_label6" functionLabel="">
+            <pragma name="DATAFLOW"/>
+        </directive>
+        <directive functionName="keccak_squeezeblocks" label="keccak_squeezeblocks_label0" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="crypto_sign_keypair" label="crypto_sign_keypair_label6" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="randombytes" label="randombytes_label10" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="randombytes" label="randombytes_label11" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="randombytes" label="randombytes_label12" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="randombytes_sign" label="randombytes_sign_label13" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="AES256_CTR_DRBG_Update" label="AES256_CTR_DRBG_Update_label16" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="crypto_sign_open" label="crypto_sign_open_label25" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="generate_quadratic_terms" label="generate_quadratic_terms_label26" functionLabel="">
+            <pragma name="DEPENDENCE">
+                <option name="inter" value="" positionalBoolean="type"/>
+                <option name="true" value="" positionalBoolean="dependent"/>
+            </pragma>
+        </directive>
+        <directive functionName="generate_xiyj_p_xjyi_terms" label="generate_xiyj_p_xjyi_terms_label27" functionLabel="">
+            <pragma name="DATAFLOW"/>
+        </directive>
+        <directive functionName="MQ" label="MQ_label29" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="G" label="G_label30" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="G" label="G_label31" functionLabel="">
+            <pragma name="OCCURRENCE"/>
+        </directive>
+        <directive functionName="crypto_sign" label="crypto_sign_label32" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="crypto_sign" label="crypto_sign_label33" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="crypto_sign" label="crypto_sign_label34" functionLabel="">
+            <pragma name="DATAFLOW"/>
+        </directive>
+        <directive functionName="crypto_sign_open" label="crypto_sign_open_label35" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="crypto_sign_open" label="crypto_sign_open_label36" functionLabel="">
+            <pragma name="DATAFLOW"/>
+        </directive>
+        <directive functionName="crypto_sign_open" label="crypto_sign_open_label37" functionLabel="">
+            <pragma name="INLINE"/>
+        </directive>
+        <directive functionName="crypto_sign_open" label="crypto_sign_open_label38" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="crypto_sign_open" label="crypto_sign_open_label39" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="print_aes256_struct" label="print_aes256_struct_label0" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="seedexpander" label="seedexpander_label1" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="seedexpander" label="seedexpander_label2" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="write_aes256_struct" label="write_aes256_struct_label3" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="fprint_aes256_struct" label="fprint_aes256_struct_label4" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="print_aes256_struct" label="print_aes256_struct_label5" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+    </sourceFile>
+</AutoPilot:ProjectResources>
+

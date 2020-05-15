@@ -1,0 +1,1844 @@
+{
+  "Top": "crypto_sign_keypair",
+  "RtlTop": "crypto_sign_keypair",
+  "RtlPrefix": "",
+  "SourceLanguage": "c",
+  "ResetStyle": "control",
+  "GenerateBdFiles": "0",
+  "HostMachineBits": "64",
+  "Target": {
+    "Family": "artix7",
+    "Device": "xc7a200t",
+    "Package": "-fbg676",
+    "Speed": "-2"
+  },
+  "HlsSolution": {
+    "Config": [
+      "config_interface -clock_enable=0",
+      "config_interface -expose_global=1",
+      "config_interface -m_axi_addr64=0",
+      "config_interface -m_axi_offset=off",
+      "config_interface -register_io=off",
+      "config_interface -trim_dangling_port=0"
+    ],
+    "DirectiveTcl": [
+      "set_directive_dataflow vgf31_unique\/vgf31_unique_label0 ",
+      "set_directive_pipeline gf31_nrand_schar\/gf31_nrand_schar_label1 ",
+      "set_directive_dataflow gf31_npack\/gf31_npack_label3 ",
+      "set_directive_pipeline KeyExpansion\/KeyExpansion_label1 ",
+      "set_directive_pipeline KeyExpansion\/KeyExpansion_label0 ",
+      "set_directive_pipeline AddRoundKey\/AddRoundKey_label0 ",
+      "set_directive_pipeline AddRoundKey\/AddRoundKey_label1 ",
+      "set_directive_pipeline Cipher\/Cipher_label6 ",
+      "set_directive_pipeline InvCipher\/InvCipher_label7 ",
+      "set_directive_pipeline XorWithIv\/XorWithIv_label8 ",
+      "set_directive_pipeline AES_CBC_encrypt_buffer\/AES_CBC_encrypt_buffer_label9 ",
+      "set_directive_pipeline AES_CBC_decrypt_buffer\/AES_CBC_decrypt_buffer_label10 ",
+      "set_directive_pipeline AES_CTR_xcrypt_buffer\/AES_CTR_xcrypt_buffer_label11 ",
+      "set_directive_pipeline KeccakF1600_StatePermute\/KeccakF1600_StatePermute_label0 ",
+      "set_directive_unroll keccak_absorb\/keccak_absorb_label1 ",
+      "set_directive_pipeline keccak_absorb\/keccak_absorb_label2 ",
+      "set_directive_dataflow keccak_absorb\/keccak_absorb_label3 ",
+      "set_directive_pipeline keccak_absorb\/keccak_absorb_label0 ",
+      "set_directive_pipeline keccak_absorb\/keccak_absorb_label4 ",
+      "set_directive_dataflow keccak_squeezeblocks\/keccak_squeezeblocks_label6 ",
+      "set_directive_pipeline keccak_squeezeblocks\/keccak_squeezeblocks_label0 ",
+      "set_directive_pipeline crypto_sign_keypair\/crypto_sign_keypair_label6 ",
+      "set_directive_pipeline randombytes\/randombytes_label10 ",
+      "set_directive_pipeline randombytes\/randombytes_label11 ",
+      "set_directive_pipeline randombytes\/randombytes_label12 ",
+      "set_directive_pipeline randombytes_sign\/randombytes_sign_label13 ",
+      "set_directive_pipeline AES256_CTR_DRBG_Update\/AES256_CTR_DRBG_Update_label16 ",
+      "set_directive_pipeline crypto_sign_open\/crypto_sign_open_label25 ",
+      "set_directive_dependence generate_quadratic_terms\/generate_quadratic_terms_label26 ",
+      "set_directive_dataflow generate_xiyj_p_xjyi_terms\/generate_xiyj_p_xjyi_terms_label27 ",
+      "set_directive_pipeline MQ\/MQ_label29 ",
+      "set_directive_pipeline G\/G_label30 ",
+      "set_directive_occurrence G\/G_label31 ",
+      "set_directive_pipeline crypto_sign\/crypto_sign_label32 ",
+      "set_directive_pipeline crypto_sign\/crypto_sign_label33 ",
+      "set_directive_dataflow crypto_sign\/crypto_sign_label34 ",
+      "set_directive_pipeline crypto_sign_open\/crypto_sign_open_label35 ",
+      "set_directive_dataflow crypto_sign_open\/crypto_sign_open_label36 ",
+      "set_directive_inline crypto_sign_open\/crypto_sign_open_label37 ",
+      "set_directive_pipeline crypto_sign_open\/crypto_sign_open_label38 ",
+      "set_directive_pipeline crypto_sign_open\/crypto_sign_open_label39 ",
+      "set_directive_pipeline print_aes256_struct\/print_aes256_struct_label0 ",
+      "set_directive_pipeline seedexpander\/seedexpander_label1 ",
+      "set_directive_pipeline seedexpander\/seedexpander_label2 ",
+      "set_directive_pipeline write_aes256_struct\/write_aes256_struct_label3 ",
+      "set_directive_pipeline fprint_aes256_struct\/fprint_aes256_struct_label4 ",
+      "set_directive_pipeline print_aes256_struct\/print_aes256_struct_label5 "
+    ],
+    "DirectiveInfo": [
+      "dataflow vgf31_unique\/vgf31_unique_label0 {} {}",
+      "pipeline gf31_nrand_schar\/gf31_nrand_schar_label1 {} {}",
+      "dataflow gf31_npack\/gf31_npack_label3 {} {}",
+      "pipeline KeyExpansion\/KeyExpansion_label1 {} {}",
+      "pipeline KeyExpansion\/KeyExpansion_label0 {} {}",
+      "pipeline AddRoundKey\/AddRoundKey_label0 {} {}",
+      "pipeline AddRoundKey\/AddRoundKey_label1 {} {}",
+      "pipeline Cipher\/Cipher_label6 {} {}",
+      "pipeline InvCipher\/InvCipher_label7 {} {}",
+      "pipeline XorWithIv\/XorWithIv_label8 {} {}",
+      "pipeline AES_CBC_encrypt_buffer\/AES_CBC_encrypt_buffer_label9 {} {}",
+      "pipeline AES_CBC_decrypt_buffer\/AES_CBC_decrypt_buffer_label10 {} {}",
+      "pipeline AES_CTR_xcrypt_buffer\/AES_CTR_xcrypt_buffer_label11 {} {}",
+      "pipeline KeccakF1600_StatePermute\/KeccakF1600_StatePermute_label0 {} {}",
+      "unroll keccak_absorb\/keccak_absorb_label1 {} {}",
+      "pipeline keccak_absorb\/keccak_absorb_label2 {} {}",
+      "dataflow keccak_absorb\/keccak_absorb_label3 {} {}",
+      "pipeline keccak_absorb\/keccak_absorb_label0 {} {}",
+      "pipeline keccak_absorb\/keccak_absorb_label4 {} {}",
+      "dataflow keccak_squeezeblocks\/keccak_squeezeblocks_label6 {} {}",
+      "pipeline keccak_squeezeblocks\/keccak_squeezeblocks_label0 {} {}",
+      "pipeline crypto_sign_keypair\/crypto_sign_keypair_label6 {} {}",
+      "pipeline randombytes\/randombytes_label10 {} {}",
+      "pipeline randombytes\/randombytes_label11 {} {}",
+      "pipeline randombytes\/randombytes_label12 {} {}",
+      "pipeline randombytes_sign\/randombytes_sign_label13 {} {}",
+      "pipeline AES256_CTR_DRBG_Update\/AES256_CTR_DRBG_Update_label16 {} {}",
+      "pipeline crypto_sign_open\/crypto_sign_open_label25 {} {}",
+      "dependence generate_quadratic_terms\/generate_quadratic_terms_label26 {{inter positionBoolean0type} {true positionBoolean0dependent}} {}",
+      "dataflow generate_xiyj_p_xjyi_terms\/generate_xiyj_p_xjyi_terms_label27 {} {}",
+      "pipeline MQ\/MQ_label29 {} {}",
+      "pipeline G\/G_label30 {} {}",
+      "occurrence G\/G_label31 {} {}",
+      "pipeline crypto_sign\/crypto_sign_label32 {} {}",
+      "pipeline crypto_sign\/crypto_sign_label33 {} {}",
+      "dataflow crypto_sign\/crypto_sign_label34 {} {}",
+      "pipeline crypto_sign_open\/crypto_sign_open_label35 {} {}",
+      "dataflow crypto_sign_open\/crypto_sign_open_label36 {} {}",
+      "inline crypto_sign_open\/crypto_sign_open_label37 {} {}",
+      "pipeline crypto_sign_open\/crypto_sign_open_label38 {} {}",
+      "pipeline crypto_sign_open\/crypto_sign_open_label39 {} {}",
+      "pipeline print_aes256_struct\/print_aes256_struct_label0 {} {}",
+      "pipeline seedexpander\/seedexpander_label1 {} {}",
+      "pipeline seedexpander\/seedexpander_label2 {} {}",
+      "pipeline write_aes256_struct\/write_aes256_struct_label3 {} {}",
+      "pipeline fprint_aes256_struct\/fprint_aes256_struct_label4 {} {}",
+      "pipeline print_aes256_struct\/print_aes256_struct_label5 {} {}"
+    ]
+  },
+  "Args": {
+    "pk": {
+      "index": "0",
+      "type": {
+        "kinds": ["array"],
+        "dataType": "unsigned",
+        "dataWidth": "8",
+        "arraySizes": ["46"],
+        "multiInterfaceRef": [
+          "pk_address0",
+          "pk_d0",
+          "pk_q0"
+        ]
+      }
+    },
+    "sk": {
+      "index": "1",
+      "type": {
+        "kinds": ["array"],
+        "dataType": "unsigned",
+        "dataWidth": "8",
+        "arraySizes": ["16"],
+        "multiInterfaceRef": [
+          "sk_address0",
+          "sk_d0",
+          "sk_q0"
+        ]
+      }
+    }
+  },
+  "Return": {
+    "dataType": "int",
+    "dataWidth": "32",
+    "interfaceRef": "ap_return"
+  },
+  "ClockInfo": {
+    "ClockName": "ap_clk",
+    "ClockPeriod": "10",
+    "IsCombLogic": "0",
+    "II": "x",
+    "Latency": "undef",
+    "Uncertainty": "1.25"
+  },
+  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
+  "Ipx": {
+    "Vendor": "xilinx.com",
+    "Library": "hls",
+    "Name": "crypto_sign_keypair",
+    "Version": "1.0",
+    "DisplayName": "Crypto_sign_keypair",
+    "Revision": "",
+    "Description": "An IP generated by Vivado HLS",
+    "Taxonomy": "\/VIVADO_HLS_IP",
+    "AutoFamilySupport": ""
+  },
+  "Files": {
+    "CSource": [
+      "..\/..\/aes.c",
+      "..\/..\/fips202.c",
+      "..\/..\/gf31.c",
+      "..\/..\/mq.c",
+      "..\/..\/rng.c",
+      "..\/..\/sign.c"
+    ],
+    "Vhdl": [
+      "impl\/vhdl\/AddRoundKey.vhd",
+      "impl\/vhdl\/AES256_CTR_DRBG_Ubkb.vhd",
+      "impl\/vhdl\/AES256_CTR_DRBG_Ucud.vhd",
+      "impl\/vhdl\/AES256_CTR_DRBG_Upda.vhd",
+      "impl\/vhdl\/Block_entry_proc_pro.vhd",
+      "impl\/vhdl\/Block_entry_proc_pro_1.vhd",
+      "impl\/vhdl\/Cipher.vhd",
+      "impl\/vhdl\/Cipher_sbox.vhd",
+      "impl\/vhdl\/crypto_sign_keypakbM.vhd",
+      "impl\/vhdl\/crypto_sign_keypalbW.vhd",
+      "impl\/vhdl\/crypto_sign_keypaocq.vhd",
+      "impl\/vhdl\/crypto_sign_keypapcA.vhd",
+      "impl\/vhdl\/crypto_sign_keypaqcK.vhd",
+      "impl\/vhdl\/crypto_sign_keyparcU.vhd",
+      "impl\/vhdl\/dataflow_in_loop_gf3.vhd",
+      "impl\/vhdl\/dataflow_in_loop_vgf.vhd",
+      "impl\/vhdl\/dataflow_parent_loop_1.vhd",
+      "impl\/vhdl\/generate_quadratic_t.vhd",
+      "impl\/vhdl\/gf31_nrand.vhd",
+      "impl\/vhdl\/gf31_nrand_schar.vhd",
+      "impl\/vhdl\/gf31_nrand_schar_g8j.vhd",
+      "impl\/vhdl\/gf31_nrand_schar_hbi.vhd",
+      "impl\/vhdl\/keccak_absorb.vhd",
+      "impl\/vhdl\/keccak_absorb_1.vhd",
+      "impl\/vhdl\/keccak_absorb_2.vhd",
+      "impl\/vhdl\/keccak_absorb_t.vhd",
+      "impl\/vhdl\/keccak_squeezeblocks.vhd",
+      "impl\/vhdl\/KeccakF1600_StatefYi.vhd",
+      "impl\/vhdl\/KeccakF1600_StatePer.vhd",
+      "impl\/vhdl\/KeyExpansion.vhd",
+      "impl\/vhdl\/KeyExpansion_Rcon.vhd",
+      "impl\/vhdl\/KeyExpansion_sbox.vhd",
+      "impl\/vhdl\/MixColumns.vhd",
+      "impl\/vhdl\/MQ.vhd",
+      "impl\/vhdl\/MQ_p_xij.vhd",
+      "impl\/vhdl\/MQ_r.vhd",
+      "impl\/vhdl\/randombytes.vhd",
+      "impl\/vhdl\/randombytes_buffeeOg.vhd",
+      "impl\/vhdl\/randombytes_ctx_RdEe.vhd",
+      "impl\/vhdl\/vgf31_unique.vhd",
+      "impl\/vhdl\/crypto_sign_keypair.vhd"
+    ],
+    "Verilog": [
+      "impl\/verilog\/AddRoundKey.v",
+      "impl\/verilog\/AES256_CTR_DRBG_Ubkb.v",
+      "impl\/verilog\/AES256_CTR_DRBG_Ucud.v",
+      "impl\/verilog\/AES256_CTR_DRBG_Upda.v",
+      "impl\/verilog\/Block_entry_proc_pro.v",
+      "impl\/verilog\/Block_entry_proc_pro_1.v",
+      "impl\/verilog\/Cipher.v",
+      "impl\/verilog\/Cipher_sbox.v",
+      "impl\/verilog\/Cipher_sbox_rom.dat",
+      "impl\/verilog\/crypto_sign_keypakbM.v",
+      "impl\/verilog\/crypto_sign_keypalbW.v",
+      "impl\/verilog\/crypto_sign_keypaocq.v",
+      "impl\/verilog\/crypto_sign_keypapcA.v",
+      "impl\/verilog\/crypto_sign_keypaqcK.v",
+      "impl\/verilog\/crypto_sign_keyparcU.v",
+      "impl\/verilog\/dataflow_in_loop_gf3.v",
+      "impl\/verilog\/dataflow_in_loop_vgf.v",
+      "impl\/verilog\/dataflow_parent_loop_1.v",
+      "impl\/verilog\/generate_quadratic_t.v",
+      "impl\/verilog\/gf31_nrand.v",
+      "impl\/verilog\/gf31_nrand_schar.v",
+      "impl\/verilog\/gf31_nrand_schar_g8j.v",
+      "impl\/verilog\/gf31_nrand_schar_hbi.v",
+      "impl\/verilog\/keccak_absorb.v",
+      "impl\/verilog\/keccak_absorb_1.v",
+      "impl\/verilog\/keccak_absorb_2.v",
+      "impl\/verilog\/keccak_absorb_t.v",
+      "impl\/verilog\/keccak_squeezeblocks.v",
+      "impl\/verilog\/KeccakF1600_StatefYi.v",
+      "impl\/verilog\/KeccakF1600_StatefYi_rom.dat",
+      "impl\/verilog\/KeccakF1600_StatePer.v",
+      "impl\/verilog\/KeyExpansion.v",
+      "impl\/verilog\/KeyExpansion_Rcon.v",
+      "impl\/verilog\/KeyExpansion_Rcon_rom.dat",
+      "impl\/verilog\/KeyExpansion_sbox.v",
+      "impl\/verilog\/KeyExpansion_sbox_rom.dat",
+      "impl\/verilog\/MixColumns.v",
+      "impl\/verilog\/MQ.v",
+      "impl\/verilog\/MQ_p_xij.v",
+      "impl\/verilog\/MQ_r.v",
+      "impl\/verilog\/randombytes.v",
+      "impl\/verilog\/randombytes_buffeeOg.v",
+      "impl\/verilog\/randombytes_ctx_RdEe.v",
+      "impl\/verilog\/vgf31_unique.v",
+      "impl\/verilog\/crypto_sign_keypair.v"
+    ],
+    "Misc": ["impl\/misc\/logo.png"],
+    "DesignXml": "C:\/Users\/ajaiswal\/Downloads\/project13-master\/mqdss_48.prj\/keypair\/.autopilot\/db\/crypto_sign_keypair.design.xml",
+    "DebugDir": "C:\/Users\/ajaiswal\/Downloads\/project13-master\/mqdss_48.prj\/keypair\/.debug",
+    "ProtoInst": ["C:\/Users\/ajaiswal\/Downloads\/project13-master\/mqdss_48.prj\/keypair\/.debug\/crypto_sign_keypair.protoinst"]
+  },
+  "SubcoreInfo": {
+    "HasXpmMemory": false,
+    "HasClockedDsp": false,
+    "IP": []
+  },
+  "Interfaces": {
+    "ap_clk": {
+      "type": "clock",
+      "ctype": {"CLK": {"Type": "bool"}},
+      "bundle_name": "ap_clk",
+      "bundle_role": "default",
+      "reset": "ap_rst"
+    },
+    "ap_ctrl": {
+      "type": "ap_ctrl",
+      "ctrl_ports": "ap_start ap_done ap_idle ap_ready",
+      "ctype": {
+        "start": {"Type": "bool"},
+        "done": {"Type": "bool"},
+        "idle": {"Type": "bool"},
+        "ready": {"Type": "bool"}
+      }
+    },
+    "ap_return": {
+      "type": "data",
+      "dir": "out",
+      "width": "32",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "32"
+        }},
+      "bundle_name": "ap_return",
+      "bundle_role": "default"
+    },
+    "ap_rst": {
+      "type": "reset",
+      "polarity": "ACTIVE_HIGH",
+      "ctype": {"RST": {"Type": "bool"}},
+      "bundle_name": "ap_rst",
+      "bundle_role": "default"
+    },
+    "DRBG_ctx_Key_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "5",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "5"
+        }},
+      "bundle_name": "DRBG_ctx_Key",
+      "bundle_role": "address0"
+    },
+    "DRBG_ctx_Key_address1": {
+      "type": "data",
+      "dir": "out",
+      "width": "5",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "5"
+        }},
+      "bundle_name": "DRBG_ctx_Key",
+      "bundle_role": "address1"
+    },
+    "DRBG_ctx_Key_d0": {
+      "type": "data",
+      "dir": "out",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "DRBG_ctx_Key",
+      "bundle_role": "d0"
+    },
+    "DRBG_ctx_Key_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "DRBG_ctx_Key",
+      "bundle_role": "q0"
+    },
+    "DRBG_ctx_Key_q1": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "DRBG_ctx_Key",
+      "bundle_role": "q1"
+    },
+    "DRBG_ctx_reseed_counter_i": {
+      "type": "data",
+      "dir": "in",
+      "width": "32",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "32"
+        }},
+      "bundle_name": "DRBG_ctx_reseed_counter",
+      "bundle_role": "i"
+    },
+    "DRBG_ctx_reseed_counter_o": {
+      "type": "data",
+      "dir": "out",
+      "width": "32",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "32"
+        }},
+      "bundle_name": "DRBG_ctx_reseed_counter",
+      "bundle_role": "o"
+    },
+    "DRBG_ctx_V_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "4",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "4"
+        }},
+      "bundle_name": "DRBG_ctx_V",
+      "bundle_role": "address0"
+    },
+    "DRBG_ctx_V_address1": {
+      "type": "data",
+      "dir": "out",
+      "width": "4",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "4"
+        }},
+      "bundle_name": "DRBG_ctx_V",
+      "bundle_role": "address1"
+    },
+    "DRBG_ctx_V_d0": {
+      "type": "data",
+      "dir": "out",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "DRBG_ctx_V",
+      "bundle_role": "d0"
+    },
+    "DRBG_ctx_V_d1": {
+      "type": "data",
+      "dir": "out",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "DRBG_ctx_V",
+      "bundle_role": "d1"
+    },
+    "DRBG_ctx_V_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "DRBG_ctx_V",
+      "bundle_role": "q0"
+    },
+    "DRBG_ctx_V_q1": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "DRBG_ctx_V",
+      "bundle_role": "q1"
+    },
+    "pk_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "6",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "6"
+        }},
+      "bundle_name": "pk",
+      "bundle_role": "address0"
+    },
+    "pk_d0": {
+      "type": "data",
+      "dir": "out",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "pk",
+      "bundle_role": "d0"
+    },
+    "pk_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "pk",
+      "bundle_role": "q0"
+    },
+    "sk_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "4",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "4"
+        }},
+      "bundle_name": "sk",
+      "bundle_role": "address0"
+    },
+    "sk_d0": {
+      "type": "data",
+      "dir": "out",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "sk",
+      "bundle_role": "d0"
+    },
+    "sk_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "sk",
+      "bundle_role": "q0"
+    }
+  },
+  "RtlPorts": {
+    "ap_clk": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_rst": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_start": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_done": {
+      "dir": "out",
+      "width": "1"
+    },
+    "ap_idle": {
+      "dir": "out",
+      "width": "1"
+    },
+    "ap_ready": {
+      "dir": "out",
+      "width": "1"
+    },
+    "ap_return": {
+      "dir": "out",
+      "width": "32"
+    },
+    "pk_address0": {
+      "dir": "out",
+      "width": "6"
+    },
+    "pk_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "pk_we0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "pk_d0": {
+      "dir": "out",
+      "width": "8"
+    },
+    "pk_q0": {
+      "dir": "in",
+      "width": "8"
+    },
+    "sk_address0": {
+      "dir": "out",
+      "width": "4"
+    },
+    "sk_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "sk_we0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "sk_d0": {
+      "dir": "out",
+      "width": "8"
+    },
+    "sk_q0": {
+      "dir": "in",
+      "width": "8"
+    },
+    "DRBG_ctx_V_address0": {
+      "dir": "out",
+      "width": "4"
+    },
+    "DRBG_ctx_V_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "DRBG_ctx_V_we0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "DRBG_ctx_V_d0": {
+      "dir": "out",
+      "width": "8"
+    },
+    "DRBG_ctx_V_q0": {
+      "dir": "in",
+      "width": "8"
+    },
+    "DRBG_ctx_V_address1": {
+      "dir": "out",
+      "width": "4"
+    },
+    "DRBG_ctx_V_ce1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "DRBG_ctx_V_we1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "DRBG_ctx_V_d1": {
+      "dir": "out",
+      "width": "8"
+    },
+    "DRBG_ctx_V_q1": {
+      "dir": "in",
+      "width": "8"
+    },
+    "DRBG_ctx_Key_address0": {
+      "dir": "out",
+      "width": "5"
+    },
+    "DRBG_ctx_Key_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "DRBG_ctx_Key_we0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "DRBG_ctx_Key_d0": {
+      "dir": "out",
+      "width": "8"
+    },
+    "DRBG_ctx_Key_q0": {
+      "dir": "in",
+      "width": "8"
+    },
+    "DRBG_ctx_Key_address1": {
+      "dir": "out",
+      "width": "5"
+    },
+    "DRBG_ctx_Key_ce1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "DRBG_ctx_Key_q1": {
+      "dir": "in",
+      "width": "8"
+    },
+    "DRBG_ctx_reseed_counter_i": {
+      "dir": "in",
+      "width": "32"
+    },
+    "DRBG_ctx_reseed_counter_o": {
+      "dir": "out",
+      "width": "32"
+    },
+    "DRBG_ctx_reseed_counter_o_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    }
+  },
+  "ModuleInfo": {
+    "Hierarchy": {
+      "ModuleName": "crypto_sign_keypair",
+      "Instances": [
+        {
+          "ModuleName": "gf31_nrand_schar",
+          "InstanceName": "grp_gf31_nrand_schar_fu_297",
+          "Instances": [
+            {
+              "ModuleName": "keccak_squeezeblocks",
+              "InstanceName": "grp_keccak_squeezeblocks_fu_126",
+              "Instances": [{
+                  "ModuleName": "KeccakF1600_StatePer",
+                  "InstanceName": "grp_KeccakF1600_StatePer_fu_218"
+                }]
+            },
+            {
+              "ModuleName": "keccak_absorb_2",
+              "InstanceName": "grp_keccak_absorb_2_fu_134"
+            }
+          ]
+        },
+        {
+          "ModuleName": "gf31_nrand",
+          "InstanceName": "grp_gf31_nrand_fu_306",
+          "Instances": [
+            {
+              "ModuleName": "keccak_squeezeblocks",
+              "InstanceName": "grp_keccak_squeezeblocks_fu_118",
+              "Instances": [{
+                  "ModuleName": "KeccakF1600_StatePer",
+                  "InstanceName": "grp_KeccakF1600_StatePer_fu_218"
+                }]
+            },
+            {
+              "ModuleName": "keccak_absorb_1",
+              "InstanceName": "grp_keccak_absorb_1_fu_126"
+            }
+          ]
+        },
+        {
+          "ModuleName": "keccak_squeezeblocks",
+          "InstanceName": "grp_keccak_squeezeblocks_fu_314",
+          "Instances": [{
+              "ModuleName": "KeccakF1600_StatePer",
+              "InstanceName": "grp_KeccakF1600_StatePer_fu_218"
+            }]
+        },
+        {
+          "ModuleName": "randombytes",
+          "InstanceName": "grp_randombytes_fu_322",
+          "Instances": [
+            {
+              "ModuleName": "AES256_CTR_DRBG_Upda",
+              "InstanceName": "grp_AES256_CTR_DRBG_Upda_fu_404",
+              "Instances": [
+                {
+                  "ModuleName": "Cipher",
+                  "InstanceName": "grp_Cipher_fu_477",
+                  "Instances": [
+                    {
+                      "ModuleName": "MixColumns",
+                      "InstanceName": "call_ret6_MixColumns_fu_663"
+                    },
+                    {
+                      "ModuleName": "AddRoundKey",
+                      "InstanceName": "grp_AddRoundKey_fu_683"
+                    }
+                  ]
+                },
+                {
+                  "ModuleName": "KeyExpansion",
+                  "InstanceName": "grp_KeyExpansion_fu_502"
+                }
+              ]
+            },
+            {
+              "ModuleName": "Cipher",
+              "InstanceName": "grp_Cipher_fu_416",
+              "Instances": [
+                {
+                  "ModuleName": "MixColumns",
+                  "InstanceName": "call_ret6_MixColumns_fu_663"
+                },
+                {
+                  "ModuleName": "AddRoundKey",
+                  "InstanceName": "grp_AddRoundKey_fu_683"
+                }
+              ]
+            },
+            {
+              "ModuleName": "KeyExpansion",
+              "InstanceName": "grp_KeyExpansion_fu_441"
+            }
+          ]
+        },
+        {
+          "ModuleName": "MQ",
+          "InstanceName": "grp_MQ_fu_338",
+          "Instances": [{
+              "ModuleName": "generate_quadratic_t",
+              "InstanceName": "grp_generate_quadratic_t_fu_338"
+            }]
+        },
+        {
+          "ModuleName": "keccak_absorb",
+          "InstanceName": "grp_keccak_absorb_fu_345"
+        },
+        {
+          "ModuleName": "vgf31_unique",
+          "InstanceName": "grp_vgf31_unique_fu_352",
+          "Instances": [{
+              "ModuleName": "dataflow_in_loop_vgf",
+              "InstanceName": "dataflow_in_loop_vgf_U0",
+              "Instances": [{
+                  "ModuleName": "Block_entry_proc_pro_1",
+                  "InstanceName": "Block_entry_proc_pro_1_U0"
+                }]
+            }]
+        },
+        {
+          "ModuleName": "dataflow_parent_loop_1",
+          "InstanceName": "grp_dataflow_parent_loop_1_fu_357",
+          "Instances": [{
+              "ModuleName": "dataflow_in_loop_gf3",
+              "InstanceName": "dataflow_in_loop_gf3_U0",
+              "Instances": [{
+                  "ModuleName": "Block_entry_proc_pro",
+                  "InstanceName": "Block_entry_proc_pro_U0"
+                }]
+            }]
+        }
+      ]
+    },
+    "Info": {
+      "KeyExpansion": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "AddRoundKey": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "MixColumns": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "1",
+        "isOneStateSeq": "0"
+      },
+      "Cipher": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "AES256_CTR_DRBG_Upda": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "randombytes": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "keccak_absorb": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "KeccakF1600_StatePer": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "keccak_squeezeblocks": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "keccak_absorb_2": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "gf31_nrand_schar": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "keccak_absorb_1": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "gf31_nrand": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "generate_quadratic_t": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "MQ": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "Block_entry_proc_pro_1": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "dataflow_in_loop_vgf": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "vgf31_unique": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "Block_entry_proc_pro": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "1"
+      },
+      "dataflow_in_loop_gf3": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "1"
+      },
+      "dataflow_parent_loop_1": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "crypto_sign_keypair": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      }
+    },
+    "Metrics": {
+      "KeyExpansion": {
+        "Latency": {
+          "LatencyBest": "332",
+          "LatencyAvg": "332",
+          "LatencyWorst": "332",
+          "PipelineII": "332",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "6.620"
+        },
+        "Loops": [
+          {
+            "Name": "KeyExpansion_label0",
+            "TripCount": "8",
+            "Latency": "16",
+            "PipelineII": "2",
+            "PipelineDepth": "3"
+          },
+          {
+            "Name": "KeyExpansion_label1",
+            "TripCount": "52",
+            "Latency": "312",
+            "PipelineII": "6",
+            "PipelineDepth": "6"
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "1",
+          "FF": "115",
+          "LUT": "638",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "AddRoundKey": {
+        "Latency": {
+          "LatencyBest": "8",
+          "LatencyAvg": "8",
+          "LatencyWorst": "8",
+          "PipelineII": "8",
+          "PipelineDepth": "9",
+          "PipelineType": "function"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "3.572"
+        },
+        "Area": {
+          "FF": "366",
+          "LUT": "404",
+          "BRAM_18K": "0",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "MixColumns": {
+        "Latency": {
+          "LatencyBest": "0",
+          "LatencyAvg": "0",
+          "LatencyWorst": "0",
+          "PipelineII": "1",
+          "PipelineDepth": "1",
+          "PipelineType": "function"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "3.200"
+        },
+        "Area": {
+          "FF": "0",
+          "LUT": "624",
+          "BRAM_18K": "0",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "Cipher": {
+        "Latency": {
+          "LatencyBest": "357",
+          "LatencyAvg": "357",
+          "LatencyWorst": "357",
+          "PipelineII": "357",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "7.424"
+        },
+        "Loops": [{
+            "Name": "Cipher_label6",
+            "TripCount": "13",
+            "Latency": "338",
+            "PipelineII": "26",
+            "PipelineDepth": "26"
+          }],
+        "Area": {
+          "BRAM_18K": "8",
+          "FF": "800",
+          "LUT": "2012",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "AES256_CTR_DRBG_Upda": {
+        "Latency": {
+          "LatencyBest": "2229",
+          "LatencyAvg": "2277",
+          "LatencyWorst": "2325",
+          "PipelineIIMin": "2229",
+          "PipelineIIMax": "2325",
+          "PipelineII": "2229 ~ 2325",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "7.424"
+        },
+        "Loops": [
+          {
+            "Name": "Loop 1",
+            "TripCount": "3",
+            "LatencyMin": "2130",
+            "LatencyMax": "2226",
+            "Latency": "2130 ~ 2226",
+            "PipelineII": "",
+            "PipelineDepthMin": "710",
+            "PipelineDepthMax": "742",
+            "PipelineDepth": "710 ~ 742",
+            "Loops": [{
+                "Name": "Loop 1.1",
+                "TripCount": "",
+                "LatencyMin": "2",
+                "LatencyMax": "33",
+                "Latency": "2 ~ 33",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "Loop 2",
+            "TripCount": "32",
+            "Latency": "64",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 3",
+            "TripCount": "16",
+            "Latency": "32",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "11",
+          "FF": "1226",
+          "LUT": "3419",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "randombytes": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "7.424"
+        },
+        "Loops": [{
+            "Name": "sign_label1",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepthMin": "714",
+            "PipelineDepthMax": "761",
+            "PipelineDepth": "714 ~ 761",
+            "Loops": [
+              {
+                "Name": "randombytes_label10",
+                "TripCount": "",
+                "LatencyMin": "3",
+                "LatencyMax": "33",
+                "Latency": "3 ~ 33",
+                "PipelineII": "2",
+                "PipelineDepth": "2"
+              },
+              {
+                "Name": "randombytes_label11",
+                "TripCount": "16",
+                "Latency": "16",
+                "PipelineII": "1",
+                "PipelineDepth": "2"
+              },
+              {
+                "Name": "randombytes_label12",
+                "TripCount": "",
+                "LatencyMin": "0",
+                "LatencyMax": "15",
+                "Latency": "0 ~ 15",
+                "PipelineII": "1",
+                "PipelineDepth": "2"
+              }
+            ]
+          }],
+        "Area": {
+          "BRAM_18K": "22",
+          "FF": "2606",
+          "LUT": "7242",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "keccak_absorb": {
+        "Latency": {
+          "LatencyBest": "464",
+          "LatencyAvg": "464",
+          "LatencyWorst": "464",
+          "PipelineII": "464",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "6.352"
+        },
+        "Loops": [
+          {
+            "Name": "Loop 1",
+            "TripCount": "120",
+            "Latency": "120",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "keccak_absorb_label2",
+            "TripCount": "16",
+            "Latency": "16",
+            "PipelineII": "1",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 3",
+            "TripCount": "17",
+            "Latency": "323",
+            "PipelineII": "",
+            "PipelineDepth": "19",
+            "Loops": [{
+                "Name": "Loop 3.1",
+                "TripCount": "8",
+                "Latency": "16",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "1",
+          "FF": "127",
+          "LUT": "625",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "KeccakF1600_StatePer": {
+        "Latency": {
+          "LatencyBest": "39",
+          "LatencyAvg": "39",
+          "LatencyWorst": "39",
+          "PipelineII": "39",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "6.812"
+        },
+        "Loops": [{
+            "Name": "KeccakF1600_StatePermute_label0",
+            "TripCount": "12",
+            "Latency": "12",
+            "PipelineII": "1",
+            "PipelineDepth": "2"
+          }],
+        "Area": {
+          "BRAM_18K": "2",
+          "FF": "3108",
+          "LUT": "16902",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "keccak_squeezeblocks": {
+        "Latency": {
+          "LatencyBest": "112",
+          "LatencyAvg": "112",
+          "LatencyWorst": "112",
+          "PipelineII": "112",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "6.812"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "1",
+            "Latency": "111",
+            "PipelineII": "",
+            "PipelineDepth": "111",
+            "Loops": [{
+                "Name": "keccak_squeezeblocks_label0",
+                "TripCount": "17",
+                "Latency": "68",
+                "PipelineII": "4",
+                "PipelineDepth": "5"
+              }]
+          }],
+        "Area": {
+          "BRAM_18K": "2",
+          "FF": "3200",
+          "LUT": "17261",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "keccak_absorb_2": {
+        "Latency": {
+          "LatencyBest": "464",
+          "LatencyAvg": "464",
+          "LatencyWorst": "464",
+          "PipelineII": "464",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "6.352"
+        },
+        "Loops": [
+          {
+            "Name": "Loop 1",
+            "TripCount": "120",
+            "Latency": "120",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "keccak_absorb_label2",
+            "TripCount": "16",
+            "Latency": "16",
+            "PipelineII": "1",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 3",
+            "TripCount": "17",
+            "Latency": "323",
+            "PipelineII": "",
+            "PipelineDepth": "19",
+            "Loops": [{
+                "Name": "Loop 3.1",
+                "TripCount": "8",
+                "Latency": "16",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "1",
+          "FF": "127",
+          "LUT": "625",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "gf31_nrand_schar": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "7.092"
+        },
+        "Loops": [
+          {
+            "Name": "memset_shakestate",
+            "TripCount": "25",
+            "Latency": "24",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "gf31_nrand_schar_label2",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "gf31_nrand_schar_label1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "1",
+                "PipelineDepth": "2"
+              }]
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "8",
+          "FF": "3440",
+          "LUT": "18327",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "keccak_absorb_1": {
+        "Latency": {
+          "LatencyBest": "464",
+          "LatencyAvg": "464",
+          "LatencyWorst": "464",
+          "PipelineII": "464",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "6.352"
+        },
+        "Loops": [
+          {
+            "Name": "Loop 1",
+            "TripCount": "120",
+            "Latency": "120",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "keccak_absorb_label2",
+            "TripCount": "16",
+            "Latency": "16",
+            "PipelineII": "1",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 3",
+            "TripCount": "17",
+            "Latency": "323",
+            "PipelineII": "",
+            "PipelineDepth": "19",
+            "Loops": [{
+                "Name": "Loop 3.1",
+                "TripCount": "8",
+                "Latency": "16",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "1",
+          "FF": "127",
+          "LUT": "640",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "gf31_nrand": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "6.812"
+        },
+        "Loops": [
+          {
+            "Name": "memset_shakestate",
+            "TripCount": "25",
+            "Latency": "24",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "gf31_nrand_label1",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "gf31_nrand_label0",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "8",
+          "FF": "3470",
+          "LUT": "18284",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "generate_quadratic_t": {
+        "Latency": {
+          "LatencyBest": "241",
+          "LatencyAvg": "",
+          "LatencyWorst": "7009",
+          "PipelineIIMin": "241",
+          "PipelineIIMax": "7009",
+          "PipelineII": "241 ~ 7009",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "7.910"
+        },
+        "Loops": [{
+            "Name": "generate_quadratic_terms_label26",
+            "TripCount": "48",
+            "LatencyMin": "240",
+            "LatencyMax": "7008",
+            "Latency": "240 ~ 7008",
+            "PipelineII": "",
+            "PipelineDepthMin": "5",
+            "PipelineDepthMax": "146",
+            "PipelineDepth": "5 ~ 146",
+            "Loops": [{
+                "Name": "generate_quadratic_terms_label26.1",
+                "TripCount": "",
+                "LatencyMin": "3",
+                "LatencyMax": "144",
+                "Latency": "3 ~ 144",
+                "PipelineII": "",
+                "PipelineDepth": "3"
+              }]
+          }],
+        "Area": {
+          "DSP48E": "0",
+          "FF": "83",
+          "LUT": "294",
+          "BRAM_18K": "0",
+          "URAM": "0"
+        }
+      },
+      "MQ": {
+        "Latency": {
+          "LatencyBest": "119684",
+          "LatencyAvg": "",
+          "LatencyWorst": "126452",
+          "PipelineIIMin": "119684",
+          "PipelineIIMax": "126452",
+          "PipelineII": "119684 ~ 126452",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "7.910"
+        },
+        "Loops": [
+          {
+            "Name": "memset_r",
+            "TripCount": "48",
+            "Latency": "47",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "MQ_label28",
+            "TripCount": "24",
+            "Latency": "4680",
+            "PipelineII": "",
+            "PipelineDepth": "195",
+            "Loops": [{
+                "Name": "MQ_label0",
+                "TripCount": "48",
+                "Latency": "192",
+                "PipelineII": "",
+                "PipelineDepth": "4"
+              }]
+          },
+          {
+            "Name": "Loop 3",
+            "TripCount": "588",
+            "Latency": "114660",
+            "PipelineII": "",
+            "PipelineDepth": "195",
+            "Loops": [{
+                "Name": "MQ_label1",
+                "TripCount": "48",
+                "Latency": "192",
+                "PipelineII": "",
+                "PipelineDepth": "4"
+              }]
+          },
+          {
+            "Name": "MQ_label29",
+            "TripCount": "48",
+            "Latency": "50",
+            "PipelineII": "1",
+            "PipelineDepth": "4"
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "2",
+          "DSP48E": "2",
+          "FF": "421",
+          "LUT": "1392",
+          "URAM": "0"
+        }
+      },
+      "Block_entry_proc_pro_1": {
+        "Latency": {
+          "LatencyBest": "1",
+          "LatencyAvg": "1",
+          "LatencyWorst": "1",
+          "PipelineII": "1",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "6.300"
+        },
+        "Area": {
+          "FF": "9",
+          "LUT": "72",
+          "BRAM_18K": "0",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "dataflow_in_loop_vgf": {
+        "Latency": {
+          "LatencyBest": "1",
+          "LatencyAvg": "1",
+          "LatencyWorst": "1",
+          "PipelineII": "2",
+          "PipelineDepth": "",
+          "PipelineType": "dataflow"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "6.300"
+        },
+        "Area": {
+          "FF": "9",
+          "LUT": "72",
+          "BRAM_18K": "0",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "vgf31_unique": {
+        "Latency": {
+          "LatencyBest": "97",
+          "LatencyAvg": "97",
+          "LatencyWorst": "97",
+          "PipelineII": "97",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "6.300"
+        },
+        "Loops": [{
+            "Name": "vgf31_unique_label0",
+            "TripCount": "48",
+            "Latency": "96",
+            "PipelineII": "",
+            "PipelineDepth": "96"
+          }],
+        "Area": {
+          "FF": "21",
+          "LUT": "135",
+          "BRAM_18K": "0",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "Block_entry_proc_pro": {
+        "Latency": {
+          "LatencyBest": "0",
+          "LatencyAvg": "0",
+          "LatencyWorst": "0",
+          "PipelineII": "0",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "3.360"
+        },
+        "Area": {
+          "FF": "2",
+          "LUT": "26",
+          "BRAM_18K": "0",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "dataflow_in_loop_gf3": {
+        "Latency": {
+          "LatencyBest": "0",
+          "LatencyAvg": "0",
+          "LatencyWorst": "0",
+          "PipelineII": "1",
+          "PipelineDepth": "",
+          "PipelineType": "dataflow"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "3.360"
+        },
+        "Area": {
+          "FF": "2",
+          "LUT": "26",
+          "BRAM_18K": "0",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "dataflow_parent_loop_1": {
+        "Latency": {
+          "LatencyBest": "31",
+          "LatencyAvg": "31",
+          "LatencyWorst": "31",
+          "PipelineII": "31",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "3.360"
+        },
+        "Loops": [{
+            "Name": "gf31_npack_label3",
+            "TripCount": "30",
+            "Latency": "30",
+            "PipelineII": "",
+            "PipelineDepth": "30"
+          }],
+        "Area": {
+          "FF": "13",
+          "LUT": "86",
+          "BRAM_18K": "0",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "crypto_sign_keypair": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "7.910"
+        },
+        "Loops": [
+          {
+            "Name": "Loop 1",
+            "TripCount": "25",
+            "Latency": "25",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "shake256_label1",
+            "TripCount": "32",
+            "Latency": "64",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "crypto_sign_keypair_label6",
+            "TripCount": "16",
+            "Latency": "16",
+            "PipelineII": "1",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "gf31_npack_label4",
+            "TripCount": "48",
+            "Latency": "192",
+            "PipelineII": "",
+            "PipelineDepth": "4"
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "68",
+          "DSP48E": "2",
+          "FF": "13592",
+          "LUT": "64603",
+          "URAM": "0"
+        }
+      }
+    }
+  },
+  "Sdx": {
+    "Target": "none",
+    "ProfileOption": "0",
+    "ProfileType": "none",
+    "XO": "",
+    "KernelName": "crypto_sign_keypair",
+    "EnableXoSwEmu": "1"
+  },
+  "GenData": {
+    "DataVersion": "0.2",
+    "Time": "2020-05-15 09:40:22 +0000",
+    "ToolName": "vivado_hls",
+    "ToolVersion": "2019.2"
+  }
+}
