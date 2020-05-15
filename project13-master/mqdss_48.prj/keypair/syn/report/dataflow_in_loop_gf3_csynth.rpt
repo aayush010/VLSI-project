@@ -1,0 +1,128 @@
+
+
+================================================================
+== Vivado HLS Report for 'dataflow_in_loop_gf3'
+================================================================
+* Date:           Fri May 15 09:40:13 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        mqdss_48.prj
+* Solution:       keypair
+* Product family: artix7
+* Target device:  xc7a200t-fbg676-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 3.360 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        0|        0|   0 ns   |   0 ns   |    1|    1| dataflow |
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------+----------------------+---------+---------+----------+----------+-----+-----+---------+
+        |                         |                      |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+        |         Instance        |        Module        |   min   |   max   |    min   |    max   | min | max |   Type  |
+        +-------------------------+----------------------+---------+---------+----------+----------+-----+-----+---------+
+        |Block_entry_proc_pro_U0  |Block_entry_proc_pro  |        0|        0|   0 ns   |   0 ns   |    0|    0|   none  |
+        +-------------------------+----------------------+---------+---------+----------+----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       -|       -|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       2|      26|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|       -|    -|
+|Register         |        -|      -|       -|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|       2|      26|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      730|    740|  269200|  134600|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------------+----------------------+---------+-------+---+----+-----+
+    |         Instance        |        Module        | BRAM_18K| DSP48E| FF| LUT| URAM|
+    +-------------------------+----------------------+---------+-------+---+----+-----+
+    |Block_entry_proc_pro_U0  |Block_entry_proc_pro  |        0|      0|  2|  26|    0|
+    +-------------------------+----------------------+---------+-------+---+----+-----+
+    |Total                    |                      |        0|      0|  2|  26|    0|
+    +-------------------------+----------------------+---------+-------+---+----+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------+-----+-----+------------+----------------------+--------------+
+|    RTL Ports   | Dir | Bits|  Protocol  |     Source Object    |    C Type    |
++----------------+-----+-----+------------+----------------------+--------------+
+|out_r_address0  | out |    6|  ap_memory |         out_r        |     array    |
+|out_r_ce0       | out |    1|  ap_memory |         out_r        |     array    |
+|out_r_d0        | out |    8|  ap_memory |         out_r        |     array    |
+|out_r_q0        |  in |    8|  ap_memory |         out_r        |     array    |
+|out_r_we0       | out |    1|  ap_memory |         out_r        |     array    |
+|out_r_address1  | out |    6|  ap_memory |         out_r        |     array    |
+|out_r_ce1       | out |    1|  ap_memory |         out_r        |     array    |
+|out_r_d1        | out |    8|  ap_memory |         out_r        |     array    |
+|out_r_q1        |  in |    8|  ap_memory |         out_r        |     array    |
+|out_r_we1       | out |    1|  ap_memory |         out_r        |     array    |
+|loop_0          |  in |    5|   ap_none  |        loop_0        |    scalar    |
+|loop_0_ap_vld   |  in |    1|   ap_none  |        loop_0        |    scalar    |
+|ap_clk          |  in |    1| ap_ctrl_hs | dataflow_in_loop_gf3 | return value |
+|ap_rst          |  in |    1| ap_ctrl_hs | dataflow_in_loop_gf3 | return value |
+|ap_start        |  in |    1| ap_ctrl_hs | dataflow_in_loop_gf3 | return value |
+|ap_done         | out |    1| ap_ctrl_hs | dataflow_in_loop_gf3 | return value |
+|ap_ready        | out |    1| ap_ctrl_hs | dataflow_in_loop_gf3 | return value |
+|ap_idle         | out |    1| ap_ctrl_hs | dataflow_in_loop_gf3 | return value |
+|ap_continue     |  in |    1| ap_ctrl_hs | dataflow_in_loop_gf3 | return value |
++----------------+-----+-----+------------+----------------------+--------------+
+

@@ -1,0 +1,217 @@
+
+
+================================================================
+== Vivado HLS Report for 'KeyExpansion'
+================================================================
+* Date:           Fri May 15 09:39:55 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        mqdss_48.prj
+* Solution:       keypair
+* Product family: artix7
+* Target device:  xc7a200t-fbg676-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 6.620 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      332|      332| 3.320 us | 3.320 us |  332|  332|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                       |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |       Loop Name       |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- KeyExpansion_label0  |       16|       16|         3|          2|          1|     8|    yes   |
+        |- KeyExpansion_label1  |      312|      312|         6|          6|          1|    52|    yes   |
+        +-----------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|     333|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        1|      -|       8|       2|    -|
+|Multiplexer      |        -|      -|       -|     303|    -|
+|Register         |        -|      -|     107|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        1|      0|     115|     638|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      730|    740|  269200|  134600|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |    ~0   |      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    +--------+-------------------+---------+---+----+-----+------+-----+------+-------------+
+    | Memory |       Module      | BRAM_18K| FF| LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +--------+-------------------+---------+---+----+-----+------+-----+------+-------------+
+    |Rcon_U  |KeyExpansion_Rcon  |        0|  8|   2|    0|    11|    8|     1|           88|
+    |sbox_U  |KeyExpansion_sbox  |        1|  0|   0|    0|   256|    8|     1|         2048|
+    +--------+-------------------+---------+---+----+-----+------+-----+------+-------------+
+    |Total   |                   |        1|  8|   2|    0|   267|   16|     2|         2136|
+    +--------+-------------------+---------+---+----+-----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+-------+---+----+------------+------------+
+    |add_ln171_fu_467_p2   |     +    |      0|  0|  15|           4|           8|
+    |add_ln172_fu_478_p2   |     +    |      0|  0|  15|           3|           8|
+    |add_ln173_fu_516_p2   |     +    |      0|  0|  15|           3|           8|
+    |add_ln174_fu_526_p2   |     +    |      0|  0|  15|           2|           8|
+    |add_ln218_fu_575_p2   |     +    |      0|  0|  15|           7|           8|
+    |add_ln219_fu_585_p2   |     +    |      0|  0|  15|           6|           8|
+    |add_ln220_fu_618_p2   |     +    |      0|  0|  15|           6|           8|
+    |add_ln221_fu_628_p2   |     +    |      0|  0|  15|           6|           8|
+    |i_17_fu_732_p2        |     +    |      0|  0|  15|           1|           6|
+    |i_fu_395_p2           |     +    |      0|  0|  13|           4|           1|
+    |icmp_ln158_fu_389_p2  |   icmp   |      0|  0|  11|           4|           5|
+    |icmp_ln167_fu_449_p2  |   icmp   |      0|  0|  11|           6|           4|
+    |icmp_ln178_fu_489_p2  |   icmp   |      0|  0|   9|           3|           1|
+    |icmp_ln206_fu_510_p2  |   icmp   |      0|  0|   9|           3|           4|
+    |or_ln161_fu_418_p2    |    or    |      0|  0|   5|           5|           1|
+    |or_ln162_fu_429_p2    |    or    |      0|  0|   5|           5|           2|
+    |or_ln163_fu_439_p2    |    or    |      0|  0|   5|           5|           2|
+    |or_ln219_fu_676_p2    |    or    |      0|  0|   8|           8|           1|
+    |or_ln220_fu_705_p2    |    or    |      0|  0|   8|           8|           2|
+    |or_ln221_fu_722_p2    |    or    |      0|  0|   8|           8|           2|
+    |tempa_0_2_fu_568_p3   |  select  |      0|  0|   8|           1|           8|
+    |tempa_0_4_fu_652_p3   |  select  |      0|  0|   8|           1|           8|
+    |tempa_1_2_fu_602_p3   |  select  |      0|  0|   8|           1|           8|
+    |tempa_1_4_fu_646_p3   |  select  |      0|  0|   8|           1|           8|
+    |tempa_2_2_fu_595_p3   |  select  |      0|  0|   8|           1|           8|
+    |tempa_2_4_fu_692_p3   |  select  |      0|  0|   8|           1|           8|
+    |tempa_3_2_fu_561_p3   |  select  |      0|  0|   8|           1|           8|
+    |tempa_3_4_fu_686_p3   |  select  |      0|  0|   8|           1|           8|
+    |ap_enable_pp0         |    xor   |      0|  0|   2|           1|           2|
+    |tempa_0_fu_556_p2     |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln218_fu_658_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln219_fu_669_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln220_fu_698_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln221_fu_715_p2   |    xor   |      0|  0|   8|           8|           8|
+    +----------------------+----------+-------+---+----+------------+------------+
+    |Total                 |          |      0|  0| 333|         146|         201|
+    +----------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------------+----+-----------+-----+-----------+
+    |             Name             | LUT| Input Size| Bits| Total Bits|
+    +------------------------------+----+-----------+-----+-----------+
+    |Key_address0                  |  15|          3|    5|         15|
+    |Key_address1                  |  15|          3|    5|         15|
+    |RoundKey_address0             |  44|          9|    8|         72|
+    |RoundKey_address1             |  44|          9|    8|         72|
+    |RoundKey_d0                   |  21|          4|    8|         32|
+    |RoundKey_d1                   |  21|          4|    8|         32|
+    |ap_NS_fsm                     |  53|         12|    1|         12|
+    |ap_enable_reg_pp0_iter1       |   9|          2|    1|          2|
+    |ap_phi_mux_i_0_phi_fu_362_p4  |   9|          2|    4|          8|
+    |i_0_reg_358                   |   9|          2|    4|          8|
+    |i_1_reg_369                   |   9|          2|    6|         12|
+    |sbox_address0                 |  27|          5|    8|         40|
+    |sbox_address1                 |  27|          5|    8|         40|
+    +------------------------------+----+-----------+-----+-----------+
+    |Total                         | 303|         62|   74|        360|
+    +------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------+----+----+-----+-----------+
+    |           Name          | FF | LUT| Bits| Const Bits|
+    +-------------------------+----+----+-----+-----------+
+    |Rcon_load_reg_861        |   8|   0|    8|          0|
+    |ap_CS_fsm                |  11|   0|   11|          0|
+    |ap_enable_reg_pp0_iter0  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1  |   1|   0|    1|          0|
+    |i_0_reg_358              |   4|   0|    4|          0|
+    |i_1_reg_369              |   6|   0|    6|          0|
+    |i_reg_742                |   4|   0|    4|          0|
+    |icmp_ln158_reg_738       |   1|   0|    1|          0|
+    |icmp_ln178_reg_820       |   1|   0|    1|          0|
+    |icmp_ln206_reg_833       |   1|   0|    1|          0|
+    |j_reg_796                |   6|   0|    8|          2|
+    |reg_381                  |   8|   0|    8|          0|
+    |reg_385                  |   8|   0|    8|          0|
+    |shl_ln_reg_747           |   3|   0|    5|          2|
+    |tempa_0_2_reg_882        |   8|   0|    8|          0|
+    |tempa_1_2_reg_904        |   8|   0|    8|          0|
+    |tempa_2_2_reg_898        |   8|   0|    8|          0|
+    |tempa_3_2_reg_876        |   8|   0|    8|          0|
+    |zext_ln160_reg_753       |   3|   0|   64|         61|
+    |zext_ln161_reg_763       |   3|   0|   64|         61|
+    |zext_ln162_reg_773       |   3|   0|   64|         61|
+    |zext_ln163_reg_783       |   3|   0|   64|         61|
+    +-------------------------+----+----+-----+-----------+
+    |Total                    | 107|   0|  355|        248|
+    +-------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------+-----+-----+------------+--------------+--------------+
+|     RTL Ports     | Dir | Bits|  Protocol  | Source Object|    C Type    |
++-------------------+-----+-----+------------+--------------+--------------+
+|ap_clk             |  in |    1| ap_ctrl_hs | KeyExpansion | return value |
+|ap_rst             |  in |    1| ap_ctrl_hs | KeyExpansion | return value |
+|ap_start           |  in |    1| ap_ctrl_hs | KeyExpansion | return value |
+|ap_done            | out |    1| ap_ctrl_hs | KeyExpansion | return value |
+|ap_idle            | out |    1| ap_ctrl_hs | KeyExpansion | return value |
+|ap_ready           | out |    1| ap_ctrl_hs | KeyExpansion | return value |
+|RoundKey_address0  | out |    8|  ap_memory |   RoundKey   |     array    |
+|RoundKey_ce0       | out |    1|  ap_memory |   RoundKey   |     array    |
+|RoundKey_we0       | out |    1|  ap_memory |   RoundKey   |     array    |
+|RoundKey_d0        | out |    8|  ap_memory |   RoundKey   |     array    |
+|RoundKey_q0        |  in |    8|  ap_memory |   RoundKey   |     array    |
+|RoundKey_address1  | out |    8|  ap_memory |   RoundKey   |     array    |
+|RoundKey_ce1       | out |    1|  ap_memory |   RoundKey   |     array    |
+|RoundKey_we1       | out |    1|  ap_memory |   RoundKey   |     array    |
+|RoundKey_d1        | out |    8|  ap_memory |   RoundKey   |     array    |
+|RoundKey_q1        |  in |    8|  ap_memory |   RoundKey   |     array    |
+|Key_address0       | out |    5|  ap_memory |      Key     |     array    |
+|Key_ce0            | out |    1|  ap_memory |      Key     |     array    |
+|Key_q0             |  in |    8|  ap_memory |      Key     |     array    |
+|Key_address1       | out |    5|  ap_memory |      Key     |     array    |
+|Key_ce1            | out |    1|  ap_memory |      Key     |     array    |
+|Key_q1             |  in |    8|  ap_memory |      Key     |     array    |
++-------------------+-----+-----+------------+--------------+--------------+
+

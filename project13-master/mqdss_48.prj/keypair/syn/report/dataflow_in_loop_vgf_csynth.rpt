@@ -1,0 +1,128 @@
+
+
+================================================================
+== Vivado HLS Report for 'dataflow_in_loop_vgf'
+================================================================
+* Date:           Fri May 15 09:40:11 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        mqdss_48.prj
+* Solution:       keypair
+* Product family: artix7
+* Target device:  xc7a200t-fbg676-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 6.300 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+----------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline |
+    |   min   |   max   |    min    |    max    | min | max |   Type   |
+    +---------+---------+-----------+-----------+-----+-----+----------+
+    |        1|        1| 10.000 ns | 10.000 ns |    2|    2| dataflow |
+    +---------+---------+-----------+-----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +---------------------------+------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |                           |                        |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+        |          Instance         |         Module         |   min   |   max   |    min    |    max    | min | max |   Type  |
+        +---------------------------+------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |Block_entry_proc_pro_1_U0  |Block_entry_proc_pro_1  |        1|        1| 10.000 ns | 10.000 ns |    1|    1|   none  |
+        +---------------------------+------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       -|       -|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       9|      72|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|       -|    -|
+|Register         |        -|      -|       -|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|       9|      72|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      730|    740|  269200|  134600|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +---------------------------+------------------------+---------+-------+---+----+-----+
+    |          Instance         |         Module         | BRAM_18K| DSP48E| FF| LUT| URAM|
+    +---------------------------+------------------------+---------+-------+---+----+-----+
+    |Block_entry_proc_pro_1_U0  |Block_entry_proc_pro_1  |        0|      0|  9|  72|    0|
+    +---------------------------+------------------------+---------+-------+---+----+-----+
+    |Total                      |                        |        0|      0|  9|  72|    0|
+    +---------------------------+------------------------+---------+-------+---+----+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------+-----+-----+------------+----------------------+--------------+
+|    RTL Ports   | Dir | Bits|  Protocol  |     Source Object    |    C Type    |
++----------------+-----+-----+------------+----------------------+--------------+
+|out_r_address0  | out |    6|  ap_memory |         out_r        |     array    |
+|out_r_ce0       | out |    1|  ap_memory |         out_r        |     array    |
+|out_r_d0        | out |   16|  ap_memory |         out_r        |     array    |
+|out_r_q0        |  in |   16|  ap_memory |         out_r        |     array    |
+|out_r_we0       | out |    1|  ap_memory |         out_r        |     array    |
+|out_r_address1  | out |    6|  ap_memory |         out_r        |     array    |
+|out_r_ce1       | out |    1|  ap_memory |         out_r        |     array    |
+|out_r_d1        | out |   16|  ap_memory |         out_r        |     array    |
+|out_r_q1        |  in |   16|  ap_memory |         out_r        |     array    |
+|out_r_we1       | out |    1|  ap_memory |         out_r        |     array    |
+|i_0_i_i         |  in |    6|   ap_none  |        i_0_i_i       |    scalar    |
+|i_0_i_i_ap_vld  |  in |    1|   ap_none  |        i_0_i_i       |    scalar    |
+|ap_clk          |  in |    1| ap_ctrl_hs | dataflow_in_loop_vgf | return value |
+|ap_rst          |  in |    1| ap_ctrl_hs | dataflow_in_loop_vgf | return value |
+|ap_start        |  in |    1| ap_ctrl_hs | dataflow_in_loop_vgf | return value |
+|ap_done         | out |    1| ap_ctrl_hs | dataflow_in_loop_vgf | return value |
+|ap_ready        | out |    1| ap_ctrl_hs | dataflow_in_loop_vgf | return value |
+|ap_idle         | out |    1| ap_ctrl_hs | dataflow_in_loop_vgf | return value |
+|ap_continue     |  in |    1| ap_ctrl_hs | dataflow_in_loop_vgf | return value |
++----------------+-----+-----+------------+----------------------+--------------+
+

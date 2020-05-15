@@ -1,0 +1,288 @@
+
+
+================================================================
+== Vivado HLS Report for 'Cipher'
+================================================================
+* Date:           Fri May 15 09:39:58 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        mqdss_48.prj
+* Solution:       keypair
+* Product family: artix7
+* Target device:  xc7a200t-fbg676-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 7.424 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      357|      357| 3.570 us | 3.570 us |  357|  357|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +-----------------------------+-------------+---------+---------+-----------+-----------+-----+-----+----------+
+        |                             |             |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline |
+        |           Instance          |    Module   |   min   |   max   |    min    |    max    | min | max |   Type   |
+        +-----------------------------+-------------+---------+---------+-----------+-----------+-----+-----+----------+
+        |call_ret6_MixColumns_fu_663  |MixColumns   |        0|        0|    0 ns   |    0 ns   |    1|    1| function |
+        |grp_AddRoundKey_fu_683       |AddRoundKey  |        8|        8| 80.000 ns | 80.000 ns |    8|    8| function |
+        +-----------------------------+-------------+---------+---------+-----------+-----------+-----+-----+----------+
+
+        * Loop: 
+        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                 |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name    |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Cipher_label6  |      338|      338|        26|         26|          1|    13|    yes   |
+        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|      22|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|     366|    1028|    -|
+|Memory           |        8|      -|       0|       0|    -|
+|Multiplexer      |        -|      -|       -|     962|    -|
+|Register         |        -|      -|     434|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        8|      0|     800|    2012|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      730|    740|  269200|  134600|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        1|      0|   ~0   |       1|    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-----------------------------+-------------+---------+-------+-----+-----+-----+
+    |           Instance          |    Module   | BRAM_18K| DSP48E|  FF | LUT | URAM|
+    +-----------------------------+-------------+---------+-------+-----+-----+-----+
+    |grp_AddRoundKey_fu_683       |AddRoundKey  |        0|      0|  366|  404|    0|
+    |call_ret6_MixColumns_fu_663  |MixColumns   |        0|      0|    0|  624|    0|
+    +-----------------------------+-------------+---------+-------+-----+-----+-----+
+    |Total                        |             |        0|      0|  366| 1028|    0|
+    +-----------------------------+-------------+---------+-------+-----+-----+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    +--------+-------------+---------+---+----+-----+------+-----+------+-------------+
+    | Memory |    Module   | BRAM_18K| FF| LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +--------+-------------+---------+---+----+-----+------+-----+------+-------------+
+    |sbox_U  |Cipher_sbox  |        8|  0|   0|    0|   256|    8|     1|         2048|
+    +--------+-------------+---------+---+----+-----+------+-----+------+-------------+
+    |Total   |             |        8|  0|   0|    0|   256|    8|     1|         2048|
+    +--------+-------------+---------+---+----+-----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+-------+---+----+------------+------------+
+    |round_fu_1086_p2      |     +    |      0|  0|  13|           4|           1|
+    |icmp_ln421_fu_915_p2  |   icmp   |      0|  0|   9|           4|           3|
+    +----------------------+----------+-------+---+----+------------+------------+
+    |Total                 |          |      0|  0|  22|           8|           4|
+    +----------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------------------+-----+-----------+-----+-----------+
+    |                  Name                 | LUT | Input Size| Bits| Total Bits|
+    +---------------------------------------+-----+-----------+-----+-----------+
+    |RoundKey_ce0                           |    9|          2|    1|          2|
+    |RoundKey_ce1                           |    9|          2|    1|          2|
+    |ap_NS_fsm                              |  201|         46|    1|         46|
+    |ap_return_0                            |    9|          2|    8|         16|
+    |ap_return_1                            |    9|          2|    8|         16|
+    |ap_return_10                           |    9|          2|    8|         16|
+    |ap_return_11                           |    9|          2|    8|         16|
+    |ap_return_12                           |    9|          2|    8|         16|
+    |ap_return_13                           |    9|          2|    8|         16|
+    |ap_return_14                           |    9|          2|    8|         16|
+    |ap_return_15                           |    9|          2|    8|         16|
+    |ap_return_2                            |    9|          2|    8|         16|
+    |ap_return_3                            |    9|          2|    8|         16|
+    |ap_return_4                            |    9|          2|    8|         16|
+    |ap_return_5                            |    9|          2|    8|         16|
+    |ap_return_6                            |    9|          2|    8|         16|
+    |ap_return_7                            |    9|          2|    8|         16|
+    |ap_return_8                            |    9|          2|    8|         16|
+    |ap_return_9                            |    9|          2|    8|         16|
+    |grp_AddRoundKey_fu_683_ap_start        |    9|          2|    1|          2|
+    |grp_AddRoundKey_fu_683_round           |   21|          4|    6|         24|
+    |grp_AddRoundKey_fu_683_state_0_0_read  |   21|          4|    8|         32|
+    |grp_AddRoundKey_fu_683_state_0_1_read  |   21|          4|    8|         32|
+    |grp_AddRoundKey_fu_683_state_0_2_read  |   21|          4|    8|         32|
+    |grp_AddRoundKey_fu_683_state_0_3_read  |   21|          4|    8|         32|
+    |grp_AddRoundKey_fu_683_state_1_0_read  |   21|          4|    8|         32|
+    |grp_AddRoundKey_fu_683_state_1_1_read  |   21|          4|    8|         32|
+    |grp_AddRoundKey_fu_683_state_1_2_read  |   21|          4|    8|         32|
+    |grp_AddRoundKey_fu_683_state_1_3_read  |   21|          4|    8|         32|
+    |grp_AddRoundKey_fu_683_state_2_0_read  |   21|          4|    8|         32|
+    |grp_AddRoundKey_fu_683_state_2_1_read  |   21|          4|    8|         32|
+    |grp_AddRoundKey_fu_683_state_2_2_read  |   21|          4|    8|         32|
+    |grp_AddRoundKey_fu_683_state_2_3_read  |   21|          4|    8|         32|
+    |grp_AddRoundKey_fu_683_state_3_0_read  |   21|          4|    8|         32|
+    |grp_AddRoundKey_fu_683_state_3_1_read  |   21|          4|    8|         32|
+    |grp_AddRoundKey_fu_683_state_3_2_read  |   21|          4|    8|         32|
+    |grp_AddRoundKey_fu_683_state_3_3_read  |   21|          4|    8|         32|
+    |reg_810                                |    9|          2|    8|         16|
+    |reg_817                                |    9|          2|    8|         16|
+    |reg_824                                |    9|          2|    8|         16|
+    |reg_831                                |    9|          2|    8|         16|
+    |reg_838                                |    9|          2|    8|         16|
+    |reg_845                                |    9|          2|    8|         16|
+    |reg_852                                |    9|          2|    8|         16|
+    |reg_859                                |    9|          2|    8|         16|
+    |reg_866                                |    9|          2|    8|         16|
+    |reg_873                                |    9|          2|    8|         16|
+    |reg_880                                |    9|          2|    8|         16|
+    |reg_887                                |    9|          2|    8|         16|
+    |reg_894                                |    9|          2|    8|         16|
+    |reg_901                                |    9|          2|    8|         16|
+    |reg_908                                |    9|          2|    8|         16|
+    |round_0_reg_651                        |    9|          2|    4|          8|
+    |sbox_address0                          |   89|         18|    8|        144|
+    +---------------------------------------+-----+-----------+-----+-----------+
+    |Total                                  |  962|        202|  398|       1236|
+    +---------------------------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------------------+----+----+-----+-----------+
+    |                 Name                | FF | LUT| Bits| Const Bits|
+    +-------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                            |  45|   0|   45|          0|
+    |ap_return_0_preg                     |   8|   0|    8|          0|
+    |ap_return_10_preg                    |   8|   0|    8|          0|
+    |ap_return_11_preg                    |   8|   0|    8|          0|
+    |ap_return_12_preg                    |   8|   0|    8|          0|
+    |ap_return_13_preg                    |   8|   0|    8|          0|
+    |ap_return_14_preg                    |   8|   0|    8|          0|
+    |ap_return_15_preg                    |   8|   0|    8|          0|
+    |ap_return_1_preg                     |   8|   0|    8|          0|
+    |ap_return_2_preg                     |   8|   0|    8|          0|
+    |ap_return_3_preg                     |   8|   0|    8|          0|
+    |ap_return_4_preg                     |   8|   0|    8|          0|
+    |ap_return_5_preg                     |   8|   0|    8|          0|
+    |ap_return_6_preg                     |   8|   0|    8|          0|
+    |ap_return_7_preg                     |   8|   0|    8|          0|
+    |ap_return_8_preg                     |   8|   0|    8|          0|
+    |ap_return_9_preg                     |   8|   0|    8|          0|
+    |grp_AddRoundKey_fu_683_ap_start_reg  |   1|   0|    1|          0|
+    |reg_804                              |   8|   0|    8|          0|
+    |reg_810                              |   8|   0|    8|          0|
+    |reg_817                              |   8|   0|    8|          0|
+    |reg_824                              |   8|   0|    8|          0|
+    |reg_831                              |   8|   0|    8|          0|
+    |reg_838                              |   8|   0|    8|          0|
+    |reg_845                              |   8|   0|    8|          0|
+    |reg_852                              |   8|   0|    8|          0|
+    |reg_859                              |   8|   0|    8|          0|
+    |reg_866                              |   8|   0|    8|          0|
+    |reg_873                              |   8|   0|    8|          0|
+    |reg_880                              |   8|   0|    8|          0|
+    |reg_887                              |   8|   0|    8|          0|
+    |reg_894                              |   8|   0|    8|          0|
+    |reg_901                              |   8|   0|    8|          0|
+    |reg_908                              |   8|   0|    8|          0|
+    |round_0_reg_651                      |   4|   0|    4|          0|
+    |state_0_0_read_ass_reg_491           |   8|   0|    8|          0|
+    |state_0_1_read_ass_reg_501           |   8|   0|    8|          0|
+    |state_0_2_read_ass_reg_511           |   8|   0|    8|          0|
+    |state_0_3_read_ass_reg_521           |   8|   0|    8|          0|
+    |state_1_0_read_ass_reg_531           |   8|   0|    8|          0|
+    |state_1_1_read_ass_reg_541           |   8|   0|    8|          0|
+    |state_1_2_read_ass_reg_551           |   8|   0|    8|          0|
+    |state_1_3_read_ass_reg_561           |   8|   0|    8|          0|
+    |state_2_0_read_ass_reg_571           |   8|   0|    8|          0|
+    |state_2_1_read_ass_reg_581           |   8|   0|    8|          0|
+    |state_2_2_read_ass_reg_591           |   8|   0|    8|          0|
+    |state_2_3_read_ass_reg_601           |   8|   0|    8|          0|
+    |state_3_0_read_ass_reg_611           |   8|   0|    8|          0|
+    |state_3_1_read_ass_reg_621           |   8|   0|    8|          0|
+    |state_3_2_read_ass_reg_631           |   8|   0|    8|          0|
+    |state_3_3_read_ass_reg_641           |   8|   0|    8|          0|
+    +-------------------------------------+----+----+-----+-----------+
+    |Total                                | 434|   0|  434|          0|
+    +-------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------+-----+-----+------------+----------------+--------------+
+|     RTL Ports     | Dir | Bits|  Protocol  |  Source Object |    C Type    |
++-------------------+-----+-----+------------+----------------+--------------+
+|ap_clk             |  in |    1| ap_ctrl_hs |     Cipher     | return value |
+|ap_rst             |  in |    1| ap_ctrl_hs |     Cipher     | return value |
+|ap_start           |  in |    1| ap_ctrl_hs |     Cipher     | return value |
+|ap_done            | out |    1| ap_ctrl_hs |     Cipher     | return value |
+|ap_idle            | out |    1| ap_ctrl_hs |     Cipher     | return value |
+|ap_ready           | out |    1| ap_ctrl_hs |     Cipher     | return value |
+|ap_return_0        | out |    8| ap_ctrl_hs |     Cipher     | return value |
+|ap_return_1        | out |    8| ap_ctrl_hs |     Cipher     | return value |
+|ap_return_2        | out |    8| ap_ctrl_hs |     Cipher     | return value |
+|ap_return_3        | out |    8| ap_ctrl_hs |     Cipher     | return value |
+|ap_return_4        | out |    8| ap_ctrl_hs |     Cipher     | return value |
+|ap_return_5        | out |    8| ap_ctrl_hs |     Cipher     | return value |
+|ap_return_6        | out |    8| ap_ctrl_hs |     Cipher     | return value |
+|ap_return_7        | out |    8| ap_ctrl_hs |     Cipher     | return value |
+|ap_return_8        | out |    8| ap_ctrl_hs |     Cipher     | return value |
+|ap_return_9        | out |    8| ap_ctrl_hs |     Cipher     | return value |
+|ap_return_10       | out |    8| ap_ctrl_hs |     Cipher     | return value |
+|ap_return_11       | out |    8| ap_ctrl_hs |     Cipher     | return value |
+|ap_return_12       | out |    8| ap_ctrl_hs |     Cipher     | return value |
+|ap_return_13       | out |    8| ap_ctrl_hs |     Cipher     | return value |
+|ap_return_14       | out |    8| ap_ctrl_hs |     Cipher     | return value |
+|ap_return_15       | out |    8| ap_ctrl_hs |     Cipher     | return value |
+|state_0_0_read     |  in |    8|   ap_none  | state_0_0_read |    scalar    |
+|state_0_1_read     |  in |    8|   ap_none  | state_0_1_read |    scalar    |
+|state_0_2_read     |  in |    8|   ap_none  | state_0_2_read |    scalar    |
+|state_0_3_read     |  in |    8|   ap_none  | state_0_3_read |    scalar    |
+|state_1_0_read     |  in |    8|   ap_none  | state_1_0_read |    scalar    |
+|state_1_1_read     |  in |    8|   ap_none  | state_1_1_read |    scalar    |
+|state_1_2_read     |  in |    8|   ap_none  | state_1_2_read |    scalar    |
+|state_1_3_read     |  in |    8|   ap_none  | state_1_3_read |    scalar    |
+|state_2_0_read     |  in |    8|   ap_none  | state_2_0_read |    scalar    |
+|state_2_1_read     |  in |    8|   ap_none  | state_2_1_read |    scalar    |
+|state_2_2_read     |  in |    8|   ap_none  | state_2_2_read |    scalar    |
+|state_2_3_read     |  in |    8|   ap_none  | state_2_3_read |    scalar    |
+|state_3_0_read     |  in |    8|   ap_none  | state_3_0_read |    scalar    |
+|state_3_1_read     |  in |    8|   ap_none  | state_3_1_read |    scalar    |
+|state_3_2_read     |  in |    8|   ap_none  | state_3_2_read |    scalar    |
+|state_3_3_read     |  in |    8|   ap_none  | state_3_3_read |    scalar    |
+|RoundKey_address0  | out |    8|  ap_memory |    RoundKey    |     array    |
+|RoundKey_ce0       | out |    1|  ap_memory |    RoundKey    |     array    |
+|RoundKey_q0        |  in |    8|  ap_memory |    RoundKey    |     array    |
+|RoundKey_address1  | out |    8|  ap_memory |    RoundKey    |     array    |
+|RoundKey_ce1       | out |    1|  ap_memory |    RoundKey    |     array    |
+|RoundKey_q1        |  in |    8|  ap_memory |    RoundKey    |     array    |
++-------------------+-----+-----+------------+----------------+--------------+
+
