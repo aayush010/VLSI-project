@@ -1,0 +1,12 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../newtest_sign.c in debug mode
+   Compiling ../../../../sign.c in debug mode
+   Compiling ../../../../rng.c in debug mode
+   Compiling ../../../../mq.c in debug mode
+   Compiling ../../../../gf31.c in debug mode
+   Compiling ../../../../fips202.c in debug mode
+   Compiling ../../../../aes.c in debug mode
+   Generating csim.exe
+INFO: [SIM 1] CSim file generation done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************
